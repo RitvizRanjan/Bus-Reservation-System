@@ -1,0 +1,46 @@
+#TECHNIQUE USED:BUFFER MANAGEMENT
+
+*BUFFER
+
+"Buffer" is a generic term that refers to a block of computer memory that serves as a temporary placeholder. Y Computer programmers use buffers as well.
+A temporary storage area is called buffer. All standard input and output devices contain an input and output buffer. In standard C/C++, streams are buffered, for example in the case of standard input, when we press the key on keyboard, it isn’t sent to your program, rather it is buffered by operating system till the time is allotted to that program.ou might encounter the term in your computer, which uses RAM as a buffer, or in video streaming where a section of the movie you are streaming downloads to your device to stay ahead of your viewing.
+
+In computer programming, data can be placed in a software buffer before it is processed. Because writing data to a buffer is much faster than a direct operation, using a buffer while programming in C and C++ makes a lot of sense and speeds up the calculation process. Buffers come in handy when a difference exists between the rate data is received and the rate it is processed. 
+
+
+A buffer is temporary storage of data that is on its way to other media or storage of data that can be modified non-sequentially before it is read sequentially. It attempts to reduce the difference between input speed and output speed. A cache also acts as a buffer, but it stores data that is expected to be read several times to reduce the need to access slower storage. 
+
+
+*BUFFER MANAGEMENT
+
+►Buffering means working with large chunks of data in main memory so the number of accesses to secondary storage is reduced.
+►Today, we’ll discuss the System I/O buffers. These are beyond the control of application programs and are manipulated by the O.S.
+►Note that the application program may implement its own “buffer” – i.e. a place in memory (variable, object) that accumulates large chunks of data to be later written to disk as a chunk.
+
+*Buffering Strategies Buffering Strategies
+
+►Double Buffering: Two buffers can be used to allow processing and I/O to overlap.
+– Suppose that a program is only writing to a disk.
+– CPU wants to fill a buffer at the same time that I/O is being performed.
+– If two buffers are used and I/O-CPU overlapping is permitted, CPU can be filling one buffer while the other buffer is being transmitted to disk.
+– When both tasks are finished, the roles of the buffers can be exchanged.
+►The actual management is done by the O.S.
+
+#OPERATION:
+
+*How does it effect Programming? 
+
+On various occasions you may need to clear the unwanted buffer so as to get the next input in the desired container and not in the buffer of previous variable. For example, in case of C after encountering “scanf()” , if we need to input a character array or character ,and in case of C++, after encountering“cin” statement, we require to input a character array or a string , we require to clear the input buffer or else the desired input is occupied by buffer of previous variable, not by the desired container.On pressing “Enter” (carriage return) on output screen after the first input , as the buffer of previous variable was the space for new container(as we did’nt clear it) , the program skips the following input of container.
+
+
+*BUFFER MANUPILATION
+
+How to Create a Buffer in C++
+Usually, when you open a file, a buffer is created. When you close the file, the buffer is flushed. When working in C++, you can create a buffer by allocating memory in this manner:
+
+char* buffer = new char[length];
+When you want to free up the memory allocated to a buffer, you do so like this:
+
+delete[ ] buffer;
+Note: If your system is low on memory, the benefits of buffering suffer. At this point, you have to find a balance between the size of a buffer and the available memory of your computer.
+
